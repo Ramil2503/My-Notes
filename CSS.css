@@ -113,7 +113,25 @@ textarea {
     cursor: pointer; 
     transition: background .5s;
     border-radius: 10px;
-  }
+}
+
+#edit {
+    text-decoration: none; 
+    transition: background .5s;
+    border-radius: 10px;
+}
+
+#edit:hover {
+    animation-duration: 2s;
+    animation-name: slidein;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+    background: rgb(103, 151, 255);
+    cursor: pointer; 
+    transition: background .5s;
+    border-radius: 10px;
+}
+
 @keyframes slidein {
     from {
         margin-left: 100%;
