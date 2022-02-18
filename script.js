@@ -21,11 +21,15 @@ function addNewNote(text = "") {
             <div class="tools">
                 <button class="delete" id="delete"><i class='bx bx-message-square-x' ></i></button>
             </div>
+            <div class="tools">
+                <button class="edit" id="edit"><i class='bx bxs-edit-alt'></i></button>
+            </div>
             <div class="main ${text ? "" : "hidden"}"></div>
             <textarea class="${text ? "hidden" : ""}"></textarea>
         </div>
     `;
-
+    
+    const editBtn = note.querySelector(".edit");
     const deleteBtn = note.querySelector(".delete");
 
     const main = note.querySelector(".main");
@@ -33,6 +37,11 @@ function addNewNote(text = "") {
 
     textArea.value = text;
     main.innerHTML = marked(text);
+
+    editBtn.addEventListener("click", () => {
+        main.classList.toggle("hidden");
+        textArea.classList.toggle("hidden");
+    });
 
     deleteBtn.addEventListener("click", () => {
         note.remove();
