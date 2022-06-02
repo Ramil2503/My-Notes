@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: rgb(41, 41, 41);
+    background-color: #e4cfa9;
     display: flex;
     flex-wrap: wrap;
     font-family: "Poppins", sans-serif;
@@ -16,11 +16,11 @@ body {
 
 .heading {
     margin-left: 5px;
-    color: rgb(119, 0, 0);
+    color: rgb(00, 29, 39);
 }
 .add {
-    background-color: #464646;
-    border-radius: 5px;
+    background-color: rgb(00, 29, 39);
+    border-radius: 10px;
     border: none;
     color: white;
     cursor: pointer;
@@ -32,12 +32,13 @@ body {
 }
 
 .add:hover{
-    background: #9b9b9b;
+    background: rgb(103, 151, 255);
     cursor: pointer; 
     transition: background .5s;  
 }
 .notes {
     margin: 20px;
+    width: 400px;
 }
 @media(max-width: 850px) {
     .notes {
@@ -51,17 +52,18 @@ body {
     }
 }
 textarea {
-    background-color: rgb(41, 41, 41);
+    background-color: rgb(00, 29, 39);
     box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
     height: 400px;
     width: 100%;
     position: relative;
     border-radius: 5px 5px 10px 10px;
     color: rgb(235, 235, 235);
+    resize: none;
 }
 
 .note .tools {
-    background-color: #464646;
+    background-color: rgb(00, 29, 39);
     display: flex;
     justify-content: flex-end;
     padding: 0.5rem;
@@ -79,10 +81,11 @@ textarea {
 }
 
 .note .main {
-    background-color: rgb(41, 41, 41);
+    background-color: rgb(00, 29, 39);
     overflow: hidden;
     height: 400px;
     width: 100%;
+    border-radius: 5px;
 }
 
 .note textarea {
@@ -142,3 +145,76 @@ textarea {
       width: 100%;
     }
 }
+
+:root {
+    --bg-color: #e4cfa9;
+    --typewriterSpeed: 2.5s;
+    --typewriterCharacters: 11;
+}
+
+h1 {
+    font-size: clamp(1rem, 3vw + 1rem, 4rem);
+    position: relative;
+    font-family: "Source Code Pro", monospace;
+    position: relative;
+    width: max-content;
+    height: 35px;
+}
+
+@media (min-width: 850px) {
+    h1 {
+        height: 80px;
+    }
+}
+  h1::before,
+  h1::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  
+  h1::before {
+    background: var(--bg-color);
+    animation: typewriter var(--typewriterSpeed)
+      steps(var(--typewriterCharacters)) 1s forwards;
+  }
+  
+  h1::after {
+    width: 0.125em;
+    background: rgb(00, 29, 39);
+    border-radius: 5px;
+    animation: typewriter var(--typewriterSpeed)
+        steps(var(--typewriterCharacters)) 1s forwards,
+      blink 750ms steps(var(--typewriterCharacters)) 10;
+  }
+  
+  .subtitle {
+    color: hsl(0 0% 0% / 0.7);
+    font-size: 2rem;
+    font-weight: 400;
+    opacity: 0;
+    transform: translateY(3rem);
+    animation: fadeInUp 2s ease calc(var(--typewriterSpeed) + 2s) forwards;
+  }
+  
+  @keyframes typewriter {
+    to {
+      left: 100%;
+    }
+  }
+  
+  @keyframes blink {
+    to {
+      background: transparent;
+    }
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 0.75;
+      transform: translateY(0);
+    }
+  }
