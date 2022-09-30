@@ -21,7 +21,7 @@ function addNewNote(text = "") {
             <div class="tools">
                 <button class="delete" id="delete"><i class='bx bx-message-square-x' ></i></button>
             </div>
-            <div class="tools">
+            <div class="tools2">
                 <button class="edit" id="edit"><i class='bx bxs-edit-alt'></i></button>
             </div>
             <div class="main ${text ? "" : "hidden"}"></div>
@@ -41,6 +41,11 @@ function addNewNote(text = "") {
     editBtn.addEventListener("click", () => {
         main.classList.toggle("hidden");
         textArea.classList.toggle("hidden");
+    });
+
+    editBtn.click();
+    main.addEventListener('mouseover', () => {
+        editBtn.click();
     });
 
     deleteBtn.addEventListener("click", () => {
@@ -71,3 +76,9 @@ function updateLS() {
 
     localStorage.setItem("notes", JSON.stringify(notes));
 }
+
+// function autoClick() {
+//     document.getElementById("edit").click()
+// }
+
+// document.addEventListener("load", autoClick());
