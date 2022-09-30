@@ -76,9 +76,3 @@ function updateLS() {
 
     localStorage.setItem("notes", JSON.stringify(notes));
 }
-
-// function autoClick() {
-//     document.getElementById("edit").click()
-// }
-
-// document.addEventListener("load", autoClick());
