@@ -16,6 +16,16 @@
     --font-color: black;
 }
 
+@media (prefers-color-scheme: dark) {
+    :root {
+        --main-1: #e4cfa9;
+        --main-2: rgb(00, 29, 39);
+        --main-2-hover: rgb(103, 151, 255);
+        --button-hover: red;
+        --font-color: white:
+    }
+}
+
 * {
     box-sizing: border-box;
     color: rgb(235, 235, 235);
@@ -274,6 +284,23 @@ textarea {
     transition: background .5s;
     border-radius: 7px;
 }
+
+/* #edit {
+    text-decoration: none; 
+    transition: background .5s;
+    border-radius: 10px;
+}
+
+#edit:hover {
+    animation-duration: 2s;
+    animation-name: slidein;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+    background: rgb(103, 151, 255);
+    cursor: pointer; 
+    transition: background .5s;
+    border-radius: 10px;
+} */
 
 @keyframes slidein {
     from {
