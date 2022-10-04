@@ -1,17 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
+:root {
+    --main-1: #e4cfa9;
+    --main-2: rgb(00, 29, 39);
+    --main-2-hover: rgb(103, 151, 255);
+    --button-hover: red;
+    --font-color: white:
+}
+
+[dark] {
+    --main-1: rgb(00, 29, 39);
+    --main-2: #e4cfa9;
+    --main-2-hover: rgb(103, 151, 255);
+    --button-hover: red;
+    --font-color: black;
+}
+
 * {
     box-sizing: border-box;
-    color:rgb(235, 235, 235);
+    color: rgb(235, 235, 235);
 }
 
 body {
-    background-color: #e4cfa9;
+    background-color: var(--main-1);
     display: flex;
     flex-wrap: wrap;
     font-family: "Poppins", sans-serif;
     margin: 0;
-    padding-top: 3rem;
+    padding-top: 2rem;
 }
 
 .header {
@@ -20,13 +36,100 @@ body {
 
 .heading {
     margin-left: 5px;
-    color: rgb(00, 29, 39);
+    color: var(--main-2);
+}
+
+.theme-sun {
+    margin-top: -8.5px;
+    font-size: 22px;
+    margin-left: calc(100% - 300px);
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 10px;
+    margin-left: 0.5rem;
+}
+
+.theme-moon {
+    margin-top: -8px;
+    margin-left: 0.5rem;
+    font-size: 20px;
+}
+
+@media (max-width: 850px) {
+    .theme-sun {
+        margin-left: 1rem;
+    }
+
+    .theme-moon {
+        margin-left: 0.5rem;
+    }
+
+    .switch {
+        margin-left: 0.5rem;
+    }
+
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: -8px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider {
+    border-radius: 34px;
+}
+
+.slider:before {
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    /* background-color: #2196F3; */
+    background-color: var(--main-2-hover);
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px var(--main-2-hover);
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
 }
 
 .add {
-    background-color: rgb(00, 29, 39);
+    background-color: var(--main-2);
     border-radius: 10px;
-    border: none;
     color: white;
     cursor: pointer;
     padding: 0.5rem 1rem;
@@ -35,20 +138,25 @@ body {
     right: 1rem;
     transition: background .5s;
     z-index: 10;
+    border-style: solid;
+    border-color: #e4cfa9;
+    border-width: 2px;
 }
 
-.add:hover{
-    background: rgb(103, 151, 255);
-    cursor: pointer; 
-    transition: background .5s;  
+.add:hover {
+    background: var(--main-2-hover);
+    cursor: pointer;
+    transition: background .5s;
 }
 
 .bx-folder-plus {
+    color: var(--font-color);
     font-size: 1rem;
     margin-top: 3px;
 }
 
 .add-text {
+    color: var(--font-color);
     font-size: 1.1rem;
 }
 
@@ -56,6 +164,7 @@ body {
     .bx-folder-plus {
         font-size: 0.9rem;
     }
+
     .add-text {
         font-size: 1rem;
     }
@@ -73,9 +182,11 @@ body {
     .notes {
         width: 100%;
     }
+
     textarea {
         position: fixed;
     }
+
     .note {
         width: calc(100% - 40px);
     }
@@ -83,6 +194,7 @@ body {
 
 textarea {
     background-color: rgb(00, 29, 39);
+    ;
     box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
     height: 400px;
     width: 100%;
@@ -100,6 +212,9 @@ textarea {
     width: 100%;
     margin-bottom: 10px;
     border-radius: 10px;
+    border-style: solid;
+    border-color: #e4cfa9;
+    border-width: 2px;
 }
 
 .note .tools button {
@@ -116,10 +231,14 @@ textarea {
 
 .note .main {
     background-color: rgb(00, 29, 39);
+    ;
     overflow: hidden;
     height: 400px;
     width: 100%;
     border-radius: 5px;
+    border-style: solid;
+    border-color: #e4cfa9;
+    border-width: 2px;
 }
 
 .note textarea {
@@ -129,6 +248,9 @@ textarea {
     border: none;
     height: 400px;
     width: 100%;
+    border-style: solid;
+    border-color: #e4cfa9;
+    border-width: 2px;
 }
 
 .note .hidden {
@@ -136,7 +258,7 @@ textarea {
 }
 
 #delete {
-    text-decoration: none; 
+    text-decoration: none;
     transition: background .5s;
     border-radius: 7px;
     padding-top: 3px;
@@ -148,26 +270,9 @@ textarea {
     animation-direction: alternate;
     animation-fill-mode: forwards;
     background: red;
-    cursor: pointer; 
+    cursor: pointer;
     transition: background .5s;
     border-radius: 7px;
-}
-
-#edit {
-    text-decoration: none; 
-    transition: background .5s;
-    border-radius: 10px;
-}
-
-#edit:hover {
-    animation-duration: 2s;
-    animation-name: slidein;
-    animation-direction: alternate;
-    animation-fill-mode: forwards;
-    background: rgb(103, 151, 255);
-    cursor: pointer; 
-    transition: background .5s;
-    border-radius: 10px;
 }
 
 @keyframes slidein {
@@ -175,14 +280,15 @@ textarea {
         margin-left: 100%;
         width: 100%;
     }
+
     to {
-      margin-left: 0%;
-      width: 100%;
+        margin-left: 0%;
+        width: 100%;
     }
 }
 
 :root {
-    --bg-color: #e4cfa9;
+
     --typewriterSpeed: 2.5s;
     --typewriterCharacters: 11;
 }
@@ -201,55 +307,54 @@ h1 {
         height: 80px;
     }
 }
-  h1::before,
-  h1::after {
+
+h1::before,
+h1::after {
     content: "";
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-  }
-  
-  h1::before {
-    background: var(--bg-color);
-    animation: typewriter var(--typewriterSpeed)
-      steps(var(--typewriterCharacters)) 1s forwards;
-  }
-  
-  h1::after {
+}
+
+h1::before {
+    background: var(--main-1);
+    animation: typewriter var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s forwards;
+}
+
+h1::after {
     width: 0.125em;
-    background: rgb(00, 29, 39);
+    background: var(--main-2);
     border-radius: 5px;
-    animation: typewriter var(--typewriterSpeed)
-        steps(var(--typewriterCharacters)) 1s forwards,
-      blink 750ms steps(var(--typewriterCharacters)) 10;
-  }
-  
-  .subtitle {
+    animation: typewriter var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s forwards,
+        blink 750ms steps(var(--typewriterCharacters)) 10;
+}
+
+.subtitle {
     color: hsl(0 0% 0% / 0.7);
     font-size: 2rem;
     font-weight: 400;
     opacity: 0;
     transform: translateY(3rem);
     animation: fadeInUp 2s ease calc(var(--typewriterSpeed) + 2s) forwards;
-  }
-  
-  @keyframes typewriter {
+}
+
+@keyframes typewriter {
     to {
-      left: 100%;
+        left: 100%;
     }
-  }
-  
-  @keyframes blink {
+}
+
+@keyframes blink {
     to {
-      background: transparent;
+        background: transparent;
     }
-  }
-  
-  @keyframes fadeInUp {
+}
+
+@keyframes fadeInUp {
     to {
-      opacity: 0.75;
-      transform: translateY(0);
+        opacity: 0.75;
+        transform: translateY(0);
     }
-  }
+}
