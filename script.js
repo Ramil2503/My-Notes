@@ -84,3 +84,7 @@ function changeTheme(isChecked) {
         document.body.removeAttribute('dark');
     }
 }
+
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.getElementById("theme-toggle").click();
+}
