@@ -16,16 +16,6 @@
     --font-color: black;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --main-1: rgb(00, 29, 39);
-        --main-2: #e4cfa9;
-        --main-2-hover: rgb(103, 151, 255);
-        --button-hover: red;
-        --font-color: black;
-    }
-}
-
 * {
     box-sizing: border-box;
     color: rgb(235, 235, 235);
