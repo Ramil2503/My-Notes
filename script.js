@@ -28,7 +28,7 @@ function addNewNote(text = "") {
             <textarea class="${text ? "hidden" : ""}"></textarea>
         </div>
     `;
-    
+
     const editBtn = note.querySelector(".edit");
     const deleteBtn = note.querySelector(".delete");
 
@@ -75,4 +75,12 @@ function updateLS() {
     });
 
     localStorage.setItem("notes", JSON.stringify(notes));
+}
+
+function changeTheme(isChecked) {
+    if (isChecked) {
+        document.body.setAttribute('dark', '');
+    } else {
+        document.body.removeAttribute('dark');
+    }
 }
