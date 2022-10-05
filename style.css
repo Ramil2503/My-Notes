@@ -113,7 +113,6 @@ body {
 }
 
 input:checked+.slider {
-    /* background-color: #2196F3; */
     background-color: var(--main-2-hover);
 }
 
@@ -122,9 +121,9 @@ input:focus+.slider {
 }
 
 input:checked+.slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+    -webkit-transform: translateX(37px);
+    -ms-transform: translateX(37px);
+    transform: translateX(37px);
 }
 
 .add {
