@@ -97,7 +97,7 @@ body {
     content: "";
     height: 26px;
     width: 26px;
-    left: 4px;
+    left: -2px;
     bottom: -8px;
     background-color: white;
     -webkit-transition: .4s;
